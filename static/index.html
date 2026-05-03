@@ -142,6 +142,9 @@
             const msg = JSON.parse(new TextDecoder().decode(payload));
             if (msg.type === 'transcript') {
               appendLine(msg.speaker_id, msg.text);
+            } else if (msg.type === 'history') {
+              msg.utterances.forEach(u => appendLine(u.speaker_id, u.text));
+              if (msg.speakers) renderBars(msg.speakers);
             } else if (msg.type === 'stats') {
               renderBars(msg.speakers);
             } else if (msg.type === 'agent_state') {

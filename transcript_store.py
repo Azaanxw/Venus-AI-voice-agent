@@ -77,6 +77,9 @@ class TranscriptStore:
     def mark_agent_speaking(self, speaking: bool) -> None:
         self._agent_speaking = speaking
 
+    def get_all_utterances(self) -> list[Utterance]:
+        return list(self._utterances)
+
     @property
     def speaker_ids(self) -> list[str]:
         return list(self._stats.keys())
