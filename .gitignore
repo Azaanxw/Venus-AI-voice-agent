@@ -11,3 +11,4 @@ wheels/
 
 # Local secrets
 .env.local
+MEETING_AGENT_BUILD.md
